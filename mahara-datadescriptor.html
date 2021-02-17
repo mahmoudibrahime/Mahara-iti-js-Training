@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data descriptor (defineProperty method)</title>
+</head>
+<body>
+    
+    <script>
+        var obj ={};
+        /*
+        prevent deleting properties
+        prevent property enumeration
+        value can`t be changed   
+        */
+       /*
+        Object.defineProperty(obj, "name", {
+             define accessor   //define data
+             example  value:undefined,   (default)
+             writable : false ,     (default)
+             configurable : false,   (default) // prevent delete property
+             enumerable : false   (default) // prevent for loop in object
+        });
+       */
+      var name = 'Ali';
+      Object.defineProperty(obj, "name", {
+         value: name,
+         writable: true,
+         enumerable: true
+      });
+      console.log('work in ststic methods of object Object');
+      console.log(obj.name);
+      /*
+
+      Object.defineProperties(obj, {
+          name : {
+               value:name, 
+               writable:true,
+               configurable:true,   
+          },
+          age :{
+               value:age,
+               writable:true,
+               configurable:true,
+          },
+          addr : {
+              value:address,
+              writable:true,
+              configurable:false,
+          }
+      });    
+      to learn your self
+      */
+     var obj1 = {};
+     var name = 'ali';
+     var age = 36;
+     var address = 'Omar bn el Khattab st, ';
+     var dept = 'SD';
+
+      Object.defineProperties(obj1, {   
+           // type of data descriptor
+          name : {
+               value:name,
+               writable:false,
+               configurable:true,   
+          } ,
+          age :{
+               value:age,
+               writable:true,
+               configurable:true,
+          } ,
+          addr : {
+              value:address,
+              writable:true,
+              configurable:false,
+          } ,
+                // accessor descriptor
+          dept : {
+              get:function() {return dept;}, 
+              set:function(val){dept = val;}, // ie able to set
+            //   configurable:,
+            //    enumerable:,
+          } ,
+          display:{
+              get:function(){
+                  return function(){
+                  return 'This is :'+this.name+
+                  ' age : '+ this.age+
+                  ' address : '+this.addr+
+                  ' department of : '+this.dept ;
+              }
+            } ,
+            // set:, another way with get
+          }
+
+      }); 
+
+               /* 
+
+               Search About to learn about
+               Object.seal()       isSealed()
+               Object.freeze()      isFrozen()
+                      you `ll find in ES5
+                      
+               */
+
+      console.log(obj1.age);
+      obj1.name = 'morsi';   // will not changed   why?  above writable:false;
+      console.log(obj.name);
+      console.log(obj1.dept);
+      obj1.dept = 'SA';
+      console.log(obj1.dept);  //changed because of set able
+
+      var info = obj1.display();  
+      console.log(info);
+
+    </script>
+</body>
+</html>

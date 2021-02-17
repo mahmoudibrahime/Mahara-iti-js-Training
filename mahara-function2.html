@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahara Function | IIFE</title>
+</head>
+<body>
+    
+    <script>
+       /*
+       anonymus function
+        without name
+        only one invoke so called IIFE(immediatly invoked function expression)
+        function(){  
+            
+        }
+       */
+
+      // how to work   (function here)()
+      (function(){
+         console.log(110);
+       })()
+
+       //  Learn More
+       var fun = function(a, b){
+           return a+b;
+       }
+       console.log(fun(1, 4));
+       console.log(fun(1, 4, 80) + 'add here 3 arguments');
+
+       console.log('if no argument add or more than 2 ??');
+       //  'if no argument add or more than 2 ??'
+       var fun = function(){
+           var sum = 0;
+           console.log(arguments.length);
+
+           for (var i=0; i<arguments.length; i++){
+              sum += arguments[i];
+           }
+
+           return sum;
+       }
+       console.log(fun(1, 4, 60));
+       console.log(fun(1, 4, 60, 88, 99));
+       console.log(fun(1, 80, ' LE'));  // concatenation
+
+    </script>
+    <script src="mahara-function2.js"></script>
+</body>
+</html>

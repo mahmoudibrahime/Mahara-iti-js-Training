@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharah | function</title>
+</head>
+<body>
+
+    <script>
+var x=10;
+x = 'Hello';
+function fun1 (a, b){
+    return a+b;     //hoisted function
+}
+
+var myFun = function (a, b){
+                     // literal function with no name
+    return a+ b;     //not hoisted - anonymous function 
+}       
+console.log(myFun(10, 60));    // for calling
+
+// array type
+var arr = [1, 2, 3, 'mido',  
+function(a, b){
+    return a+b;
+}
+,'xyz'];
+
+var funlem = arr[4];
+console.log(funlem(12, 40)); //way
+console.log(arr[4](20, 70));  //another way
+
+function newAddingfun(a, b, c){
+
+    var sum = function(){   //simple way
+        return a+b+c;
+    }
+    return sum;
+
+    // return function(){   //complex commented way
+    //   return a + b + c;
+    // }
+}
+
+var result = newAddingfun(1, 3, 2);
+console.log(result());
+
+    </script>
+</body>
+</html>

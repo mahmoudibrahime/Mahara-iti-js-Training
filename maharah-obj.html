@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object object | Not oop</title>
+</head>
+<body>
+    
+    <script>
+                // called dot notation type
+
+        // var obj = new Object(); //constructor creation Not used 
+
+        var obj1 = {};
+        obj1.name = "Mohamed";
+        obj1.age = 10;
+        obj1.school = "abas bn ferns school";
+        obj1.skill = ['swimming', 'football', 'computer'];//ex of properties
+        obj1.display = function(){
+            return "this is an example of function in object"; //ex of methods
+        }
+        console.log(obj1.display());
+                    // end dot notation type
+
+        var customobj = {
+            name:'mansour',
+            age:18,
+            city:'Tanta',
+            info: function(){
+                return "his name is: "+ this.name +" age about: "+this.age+
+                ' he lives in:'+this.city ;
+            }
+
+        };
+
+        var res = customobj.info(); //declaration
+        console.log(res);
+
+        ////////////////////////////////////////////////////////////////////
+        // factory method
+
+        function employee(en, ed, es){
+            return {
+                empName:en,    //like php
+                empDept:ed,
+                empSalary:es, 
+
+                empInfo: function (){
+                    return 
+                    "employer name: " + this.empName + 
+                    " he works in: " + this.empDept ;
+                }
+            }
+        }
+
+    var emp = employee("mona", "financial", 5000);
+     console.log(emp.empName);
+     console.log(emp.empSalary);
+     console.log(emp.empInfo());// undefined ???
+         // end factory method
+         //////////////////////////////////////////////////////////////////
+
+         //constructor method
+           function Employee(name, dept, salary){
+               this.empName = name;
+               this.empDept = dept;
+               this.empSalary = salary;
+               //return
+               //note no return keyword so you must use new keyword
+           }
+
+           var me = new Employee('mdhat', 'pharmacist', 7000);
+
+           console.log(me);// display function
+           console.log(me.empName);//display property
+           console.log(me.empDept);
+           console.log(me.empSalary);
+         //end constructor method
+
+////////////////////////////////////////////////////////////////////////////
+// Object object methods
+        //   me.hasOwnProperty("empName");//check for property or not
+        console.log(me.hasOwnProperty("empName"));
+        console.log(me.hasOwnProperty("empname"));
+       console.log(me.toString());
+
+       //static function (class methods)
+       // Object.keys;  Object.values;
+       console.log(Object.keys(me));
+       console.log(Object.values(me));
+       //delete property
+       // delete me.empname;  //will be deleted
+       // loop as associative array
+       for (var i in me){
+           console.log(i + ":" + me[i]);
+       }
+
+// end Object object methods
+    </script>
+</body>
+</html>
