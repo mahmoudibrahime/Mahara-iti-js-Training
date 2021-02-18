@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var b = 9;
+        function outerfun(x, y){
+
+            var z=10;
+            var a=1;  // outer scope
+            var innerfun = function(a, b){
+
+                a=9;    b=12; // inside scope priority than outer scope
+                var w=6;
+                return x+y+z+b+a+w;
+            }
+
+            return innerfun;
+        }
+
+        var res = outerfun(10, 20);
+        console.log(res);
+        console.log(res(3,4));
+
+    </script>
+</body>
+</html>

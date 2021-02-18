@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerFunction | chain</title>
+</head>
+<body>
+    
+    <script>
+     // innerFunction
+     function mainFun(){
+ 
+        function innerFun(){
+    
+            return 1+2 ;  // inner function
+        }
+
+        console.log(innerFun());
+
+        return 'main function exec';  //main function
+     }
+
+     var result = mainFun();
+     console.log(result);
+     ////////////////////////////////////////////////////////////////////////
+
+     var a = 9;
+     function mainfun1(x, y){
+
+
+        function innerfun1(z){
+
+            var w = 10;
+            return x+y+z+w+a;
+        }
+        console.log(innerfun1(3));
+
+        return 'main 1 function exec';
+     }
+
+     var res = mainfun1(20,80);
+     console.log(res);
+     
+     /*
+     when fun get variable from outer and outer 
+     leveling up is called scope chaining
+     note if i add var a inside innerfun1 = 101  called shadowing
+     */
+    </script>
+</body>
+</html>
